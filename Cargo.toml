@@ -1,0 +1,46 @@
+[package]
+name = "bonk"
+version = "0.1.0"
+authors = [
+  "James Pond <james@cipher.host>"
+]
+license = "GPL-2.0-only"
+repository = "https://git.sr.ht/~jamesponddotco/bonk"
+homepage = "https://sr.ht/~jamesponddotco/bonk"
+description = """
+A simple CLI tool that uses machine learning to detect whether or not
+an image contains nudity.
+"""
+keywords = [
+  "nudity",
+  "nude",
+  "nsfw",
+  "machine-learning",
+  "cli"
+]
+categories = [
+  "command-line-utilities",
+  "science",
+  "multimedia::images"
+]
+edition = "2021"
+publish = false # We embed the model, which is bigger than what Cargo allows.
+
+[dependencies]
+clap = { version = "4.5.4", features = [
+  "derive",
+]}
+image = "0.25.1"
+num_cpus = "1.16.0"
+rayon = "1.10.0"
+serde = { version = "1.0.201", features = [
+  "derive",
+]}
+serde_json = "1.0.117"
+tract-onnx = "0.21.5"
+
+[profile.release]
+codegen-units = 1
+panic = "abort"
+lto = true
+strip = true
