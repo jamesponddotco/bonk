@@ -27,6 +27,9 @@ meme](https://knowyourmeme.com/memes/go-to-horny-jail), because why not?
    nudity, so I needed a way to detect it.
 2. I wanted to learn Rust.
 
+> This is my first time writing Rust and I haven't even finished the
+> Rust book yet. Keep that in mind when reviewing the code.
+
 ## Installation
 
 ### From source
