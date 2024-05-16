@@ -126,6 +126,17 @@ for more details.
 
 All contributions are made under [the GPL-2.0 license](LICENSE.md).
 
+# Todo
+
+In no particular order, the following tasks need to be done:
+
+- Add tests.
+- Add documentation to the code.
+- Add a `--recursive` flag to analyze entire directory trees.
+- Change default output format to a human-readable table.
+- Introduce a `--json` flag to output in JSON format once we change the
+  default output format.
+
 ## Acknowledgements
 
 - The code in this project draws inspiration from by the Rust library
