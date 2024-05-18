@@ -85,7 +85,13 @@ pub fn image(model: &Model, path: &PathBuf, threshold: f32) -> Result<SingleOutp
 
     Ok(SingleOutput {
         has_nudity,
-        path: path.parent().unwrap().to_string_lossy().into_owned(),
+        path: path
+            .parent()
+            .unwrap()
+            .canonicalize()
+            .unwrap()
+            .to_string_lossy()
+            .into_owned(),
         filename: path.file_name().unwrap().to_string_lossy().into_owned(),
         predictions,
     })
@@ -156,7 +162,7 @@ pub fn directory(model: &Model, path: &Path, threshold: f32) -> Result<MultiOutp
 
                 Some(Output {
                     has_nudity,
-                    path: file_path.parent().unwrap().to_string_lossy().into_owned(),
+                    path: file_path.parent().unwrap().canonicalize().unwrap().to_string_lossy().into_owned(),
                     filename: file_path
                         .file_name()
                         .unwrap()
